@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="KGk-i7-Jjw" customClass="CatsCell" customModule="PdpIldar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="259.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILS-H2-UR7">
+                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="EVJ-W7-j3q"/>
+                            <constraint firstAttribute="height" constant="60" id="seH-yI-HpL"/>
+                            <constraint firstAttribute="width" secondItem="ILS-H2-UR7" secondAttribute="height" multiplier="1:1" id="toQ-Ds-BbS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unE-gm-M0m">
+                        <rect key="frame" x="76" y="8" width="236" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-dY-EeK">
+                        <rect key="frame" x="76" y="37" width="236" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WI-Pf-e8F">
+                        <rect key="frame" x="40" y="93" width="240" height="126.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="SMu-dY-EeK" secondAttribute="trailing" constant="8" id="4O8-uS-xGs"/>
+                    <constraint firstItem="unE-gm-M0m" firstAttribute="trailing" secondItem="SMu-dY-EeK" secondAttribute="trailing" id="68H-co-Bum"/>
+                    <constraint firstItem="9WI-Pf-e8F" firstAttribute="top" secondItem="ILS-H2-UR7" secondAttribute="bottom" constant="25" id="Hqq-Dl-kTg"/>
+                    <constraint firstItem="unE-gm-M0m" firstAttribute="leading" secondItem="SMu-dY-EeK" secondAttribute="leading" id="LwW-Sp-3P0"/>
+                    <constraint firstItem="9WI-Pf-e8F" firstAttribute="top" secondItem="SMu-dY-EeK" secondAttribute="bottom" constant="35" id="T9B-rF-QBW"/>
+                    <constraint firstItem="unE-gm-M0m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="WF3-uS-iyf"/>
+                    <constraint firstItem="9WI-Pf-e8F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="WFD-Q8-svH"/>
+                    <constraint firstItem="SMu-dY-EeK" firstAttribute="leading" secondItem="ILS-H2-UR7" secondAttribute="trailing" constant="8" id="eii-0y-cq1"/>
+                    <constraint firstItem="ILS-H2-UR7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jzt-SP-fgM"/>
+                    <constraint firstAttribute="bottom" secondItem="9WI-Pf-e8F" secondAttribute="bottom" constant="40" id="ks0-Vy-ABa"/>
+                    <constraint firstAttribute="trailing" secondItem="9WI-Pf-e8F" secondAttribute="trailing" constant="40" id="n80-Fd-rVG"/>
+                    <constraint firstItem="ILS-H2-UR7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qg4-fP-iNe"/>
+                    <constraint firstItem="SMu-dY-EeK" firstAttribute="top" secondItem="unE-gm-M0m" secondAttribute="bottom" constant="8" id="szH-nR-ble"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImage" destination="ILS-H2-UR7" id="Ykp-aa-5ZD"/>
+                <outlet property="catNameLabel" destination="unE-gm-M0m" id="e80-bF-nvS"/>
+                <outlet property="catOwnerName" destination="SMu-dY-EeK" id="Rxg-qH-IVr"/>
+                <outlet property="graphicView" destination="9WI-Pf-e8F" id="7Rg-sS-mR8"/>
+            </connections>
+            <point key="canvasLocation" x="245" y="475"/>
+        </tableViewCell>
+    </objects>
+</document>

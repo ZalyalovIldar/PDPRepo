@@ -1,0 +1,6 @@
+framework module Pods_Abstract_PdpIldarTests {
+  umbrella header "Pods-Abstract-PdpIldarTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

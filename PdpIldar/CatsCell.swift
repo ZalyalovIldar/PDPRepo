@@ -18,7 +18,13 @@ class CatsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    override func prepareForReuse() {
+        self.avatarImage.image = nil
+        self.catNameLabel.text = nil
+        self.catOwnerName.text = nil
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -8,18 +8,37 @@
 
 import Foundation
 import RealmSwift
+import AlamofireObjectMapper
+import ObjectMapper
 
-class Cat: Object {
+class Cat: Object, Mappable {
+    dynamic var id = 0
     dynamic var name = ""
-    dynamic var image_id = ""
-    dynamic var format: AnyObject?
-    dynamic var type = ""
-//    dynamic var owner: Owner?
-    dynamic var birthDay = NSDate()
+    dynamic var imageURL = ""
+    dynamic var birthDay = ""
     dynamic var voice = ""
-// Specify properties to ignore (Realm won't persist these)
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    //Impl. of Mappable protocol
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name    <- map["name"]
+        birthDay <- map["birthDay"]
+        imageURL <- map["image_url"]
+        voice  <- map["cat_voice"]
+    }
 }
+
+extension Cat: Meta{
+    static func endPoint() -> String {
+        return ""
+    }
+}
+

@@ -8,14 +8,32 @@
 
 import Foundation
 import RealmSwift
+import AlamofireObjectMapper
+import ObjectMapper
 
-class CatsList: Object {
+class CatsList: Object, Mappable {
+    dynamic var id = 0
     dynamic var name = ""
     dynamic var createdAt = NSDate()
     let catsList = List<Cat>()
-// Specify properties to ignore (Realm won't persist these)
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    
+    //Impl. of Mappable protocol
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name    <- map["name"]
+        createdAt <- map["createdAt"]
+    }
 }
+
+extension CatsList: Meta{
+    static func endPoint() -> String {
+        return ""
+    }
+}
+
+

@@ -7,7 +7,8 @@ abstract_target 'Abstract' do
 
     pod 'Alamofire'
     pod 'RealmSwift'
-
+    pod 'AlamofireObjectMapper', '~> 3.0'
+	
     target 'PdpIldar' do
     end
     

@@ -21,6 +21,9 @@ class CatsTable: UIViewController {
         let catsCellNib = UINib(nibName: "CatsCell", bundle: nil)
         self.tableView.registerNib(catsCellNib, forCellReuseIdentifier: cellIdentifier)
         self.animateTable()
+        APIManager.sharedInstance.getCatsList { (resultObject) in
+            print("Response: \(resultObject)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,12 +83,18 @@ extension CatsTable: UITableViewDelegate, UITableViewDataSource{
         return cell
         
     }
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {return 15}
         return CGFloat.min
     }
+    
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 260
     }
     
 }

@@ -21,6 +21,10 @@
 		7C37B1681D70285B003D6C3B /* PdpIldarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37B1671D70285B003D6C3B /* PdpIldarUITests.swift */; };
 		7C37B1761D7028B2003D6C3B /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37B1751D7028B2003D6C3B /* MainTableController.swift */; };
 		7C37B1831D7031A5003D6C3B /* CatsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37B1821D7031A5003D6C3B /* CatsTable.swift */; };
+		7C63C46C1D831A9C00F9827F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63C46B1D831A9C00F9827F /* APIManager.swift */; };
+		7C63C4751D88677800F9827F /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63C4741D88677800F9827F /* APIConfiguration.swift */; };
+		7C63C4771D88679A00F9827F /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63C4761D88679A00F9827F /* APIErrors.swift */; };
+		7C63C4791D8867C100F9827F /* APIRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C63C4781D8867C100F9827F /* APIRequestType.swift */; };
 		838795BD49C871A7C05CF672 /* Pods_Abstract_PdpIldarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10854FD10A04BD6AE8C56F4 /* Pods_Abstract_PdpIldarTests.framework */; };
 		CC27F0496AC35C0C8A6D728A /* Pods_Abstract_PdpIldar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4FAC7D504A67487D2F5B12 /* Pods_Abstract_PdpIldar.framework */; };
 		F69B940BFCFB30325942F102 /* Pods_Abstract_PdpIldarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2740C1266C57B455679368E1 /* Pods_Abstract_PdpIldarUITests.framework */; };
@@ -69,6 +73,10 @@
 		7C37B1691D70285B003D6C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C37B1751D7028B2003D6C3B /* MainTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
 		7C37B1821D7031A5003D6C3B /* CatsTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatsTable.swift; sourceTree = "<group>"; };
+		7C63C46B1D831A9C00F9827F /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		7C63C4741D88677800F9827F /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		7C63C4761D88679A00F9827F /* APIErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
+		7C63C4781D8867C100F9827F /* APIRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestType.swift; sourceTree = "<group>"; };
 		8D4FAC7D504A67487D2F5B12 /* Pods_Abstract_PdpIldar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abstract_PdpIldar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94493E3D5F49D615B5001365 /* Pods-Abstract-PdpIldar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abstract-PdpIldar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abstract-PdpIldar/Pods-Abstract-PdpIldar.release.xcconfig"; sourceTree = "<group>"; };
 		B10854FD10A04BD6AE8C56F4 /* Pods_Abstract_PdpIldarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abstract_PdpIldarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +213,7 @@
 		7C37B17B1D70303F003D6C3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C63C46A1D83164800F9827F /* APIManager */,
 				7C2A5F041D82E46400D5B1DD /* RealmModels */,
 				7C37B1881D70411E003D6C3B /* CustomViews */,
 			);
@@ -227,6 +236,17 @@
 				7C37B1791D7028DD003D6C3B /* Storyboards */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		7C63C46A1D83164800F9827F /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				7C63C46B1D831A9C00F9827F /* APIManager.swift */,
+				7C63C4741D88677800F9827F /* APIConfiguration.swift */,
+				7C63C4761D88679A00F9827F /* APIErrors.swift */,
+				7C63C4781D8867C100F9827F /* APIRequestType.swift */,
+			);
+			name = APIManager;
 			sourceTree = "<group>";
 		};
 		92E5F40F6B8DDDD79FC64210 /* Pods */ = {
@@ -516,12 +536,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C63C4791D8867C100F9827F /* APIRequestType.swift in Sources */,
 				7C2A5F081D82E4C000D5B1DD /* CatsList.swift in Sources */,
 				7C37B1481D70285A003D6C3B /* AppDelegate.swift in Sources */,
 				7C37B1761D7028B2003D6C3B /* MainTableController.swift in Sources */,
+				7C63C4771D88679A00F9827F /* APIErrors.swift in Sources */,
+				7C63C46C1D831A9C00F9827F /* APIManager.swift in Sources */,
 				7C2A5F0F1D82EB1900D5B1DD /* CatsCell.swift in Sources */,
 				7C2A5F121D82F6B600D5B1DD /* GraphicView.swift in Sources */,
 				7C2A5F061D82E48500D5B1DD /* Cat.swift in Sources */,
+				7C63C4751D88677800F9827F /* APIConfiguration.swift in Sources */,
 				7C2A5F031D82B75E00D5B1DD /* TableScrollButton.swift in Sources */,
 				7C37B1831D7031A5003D6C3B /* CatsTable.swift in Sources */,
 			);

@@ -1,0 +1,44 @@
+[
+  {
+    "id"    : 1,
+    "name" : "Сёма",
+    "image_url" : "https://goo.gl/images/XmrJJ3",
+    "cat_voice" : "МЯУ МЯЦ МЯУ"
+    "birthDay" : "12.03.07"
+  },
+  {
+    "id"    : 2,
+    "name" : "Саймон",
+    "image_url" : "https://goo.gl/images/72kZ7p",
+    "cat_voice" : "Мэу?Мяу!Мэу?"
+    "birthDay" : "05.03.02"
+  },
+  {
+    "id"    : 3,
+    "name" : "Васька",
+    "image_url" : "https://goo.gl/images/LRCX67",
+    "cat_voice" : "Миумиумиумиумиумиумиумиумиумиумиуми"
+    "birthDay" : "02.06.91"
+  },
+  {
+    "id"    : 4,
+    "name" : "Марта",
+    "image_url" : "https://goo.gl/images/AJ8bmb",
+    "cat_voice" : "МАУ!МАРТА!МАУ!!МАУ!"
+    "birthDay" : "12.03.07"
+  },
+  {
+    "id"    : 5,
+    "name" : "Белка",
+    "image_url" : "https://goo.gl/images/2EI5yu",
+    "cat_voice" : "Ммммммммммяу!"
+    "birthDay" : "12.03.07"
+  },
+  {
+    "id"    : 6,
+    "name" : "Некошка",
+    "image_url" : "https://goo.gl/images/QTrlJ5",
+    "cat_voice" : "ЦццМяу"
+    "birthDay" : "15.01.07"
+  },
+]

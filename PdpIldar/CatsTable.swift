@@ -13,7 +13,7 @@ let cellIdentifier = "catsCell"
 class CatsTable: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var catLists : Results<CatList>!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,8 +21,21 @@ class CatsTable: UIViewController {
         let catsCellNib = UINib(nibName: "CatsCell", bundle: nil)
         self.tableView.registerNib(catsCellNib, forCellReuseIdentifier: cellIdentifier)
         self.animateTable()
-        APIManager.sharedInstance.getCatsList { (resultObject) in
-            print("Response: \(resultObject)")
+        APIManager.sharedInstance.getCatsList { (cats) in
+            if (resultObject != nil){
+                
+                do {
+                        try uiRealm.write {
+                        for cat in cats {
+                            realm.add(cat, update: true)
+                        }
+                    }
+                } catch let error as NSError {
+                    //TODO: Handle error
+                }
+    
+            }
+           
         }
     }
 
@@ -53,7 +66,64 @@ class CatsTable: UIViewController {
             index += 1
         }
     }
-
+    
+    func displayAlertToAddCatList(updatedList:CatList!){
+        
+        var title = "New Cats List"
+        var doneTitle = "Create"
+        if updatedList != nil{
+            title = "Update Tasks List"
+            doneTitle = "Update"
+        }
+        
+        let alertController = UIAlertController(title: title, message: "Write the name of your Cats list", preferredStyle: UIAlertControllerStyle.Alert)
+        let createAction = UIAlertAction(title: doneTitle, style: UIAlertActionStyle.Default) { (action) -> Void in
+            
+            let listName = alertController.textFields?.first?.text
+            
+            if updatedList != nil{
+                // update mode
+                try! uiRealm.write{
+                    updatedList.name = listName!
+                    self.readTasksAndUpdateUI()
+                }
+            }
+            else{
+                let newCatList = CatList()
+                newCatList.name = listName!
+                
+                try! uiRealm.write{
+                    
+                    uiRealm.add(newCatList)
+                    self.readTasksAndUpdateUI()
+                }
+            }
+            
+            print(listName)
+        }
+        
+        alertController.addAction(createAction)
+        createAction.enabled = false
+        self.currentCreateAction = createAction
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Task List Name"
+            textField.addTarget(self, action: #selector(CatListsViewController.listNameFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+            if updatedList != nil{
+                textField.text = updatedList.name
+            }
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func readTasksAndUpdateUI(){
+        catLists = uiRealm.objects(CatList)
+        self.catListsTableView.setEditing(false, animated: true)
+        self.catListsTableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 
@@ -72,7 +142,7 @@ extension CatsTable: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return catLists.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -83,7 +153,10 @@ extension CatsTable: UITableViewDelegate, UITableViewDataSource{
         return cell
         
     }
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath: NSIndexPath) -> (){
+        let listToBeUpdated = self.catsList[indexPath.row]
+        self.displayAlertToAddCatsList(listToBeUpdated)
+    }
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {return 15}
         return CGFloat.min

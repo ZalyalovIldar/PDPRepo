@@ -1,0 +1,6 @@
+framework module Pods_PdpIldar {
+  umbrella header "Pods-PdpIldar-umbrella.h"
+
+  export *
+  module * { export * }
+}
